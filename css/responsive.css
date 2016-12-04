@@ -1,0 +1,98 @@
+.header__menu {
+  display: none;
+}
+
+@media screen and (max-width:900px) {
+  .featthumbs{
+    min-width: 300px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .myname, .mytitle, .logo{
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 1em;
+  }
+  .mytitle {
+    margin-left: 0;
+    font-size: 2em;
+    vertical-align: bottom;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .nav {
+    z-index: 10;
+    background-color: #98C93C;
+    width: 300px;
+    position: absolute;
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(-500px, 0);
+    transform: translate(-500px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.8s ease;
+  }
+  .nav.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .nav__item {
+    display: list-item;
+    border-bottom: 1px solid #E0E0E0;
+    width: 100%;
+    text-align: left;
+  }
+  .header__menu {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 1em;
+  }
+  .header__menu svg {
+    width: 32px;
+    fill:#98C93C;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  #lets-connect {
+    margin-top: 5%;
+  }
+}
+
+@media only screen and (max-width:950px) {
+  .biopic {
+    width: 175px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #lets-connect {
+    margin-top: 10%;
+  }
+  .biopic {
+    width: 150px;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  #skills,
+  .biopic {
+    display: block;
+  }
+}
+
+#map {
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
