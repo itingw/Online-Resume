@@ -6,11 +6,11 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="contactList"><span class="green-text">%contact%</span><span>%data%</span></li>';
-var HTMLemail = '<li class="contactList fontawesome-envelope"><span>%data%</span></li>';
-var HTMLgithub = '<li class ="contactList"><a href=%data% class="fontawesome-github"><a></li>';
-var HTMLlinkedin = '<li class="contactList"><a href=%data% class="fontawesome-linkedin-sign"><a></li>';
-var HTMLetsy = '<li class="contactList"><a href=%data% class="fontawesome-beaker"><a></li>';
-var HTMLlocation = '<li class="contactList fontawesome-pushpin">%data%</li>';
+var HTMLemail = '<li class="contactList"><i class="fa fa-envelope-o" aria-hidden="true"></i><span>%data%</span></li>';
+var HTMLgithub = '<li class ="contactList"><a href=%data%><i class="fa fa-github" aria-hidden="true"></i><a></li>';
+var HTMLlinkedin = '<li class="contactList"><a href=%data%"><i class="fa fa-linkedin-square" aria-hidden="true"></i><a></li>';
+var HTMLetsy = '<li class="contactList"><a href=%data%><i class="fa fa-etsy" aria-hidden="true"></i><a></li>';
+var HTMLlocation = '<li class="contactList"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span>%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic flex-item">';
 

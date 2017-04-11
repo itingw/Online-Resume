@@ -5,7 +5,7 @@ var bio = {
         "email": "itingwang35@gmail.com",
         "github": "https://github.com/itingw",
         "linkedin": "https://www.linkedin.com/in/i-ting-wang-1851a457",
-        "etsy": "etsy.com/shop/chickpeayarns",
+        "etsy": "http://etsy.com/shop/chickpeayarns",
         "location": "Melbourne, FL"
     },
     "welcomeMessage": "Welcome",
