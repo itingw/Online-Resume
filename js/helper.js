@@ -1,109 +1,55 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="green-text">%contact%</span><span>%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="green-text">mobile </span><span>%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="green-text">email </span><span>%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="green-text">twitter </span><span>%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="green-text">github </span><span>%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="green-text">blog </span><span>%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="green-text">location </span><span>%data%</span></li>';
+var HTMLcontactGeneric = '<li class="contactList"><span class="green-text">%contact%</span><span>%data%</span></li>';
+var HTMLemail = '<li class="contactList fontawesome-envelope"><span>%data%</span></li>';
+var HTMLgithub = '<li class ="contactList"><a href=%data% class="fontawesome-github"><a></li>';
+var HTMLlinkedin = '<li class="contactList"><a href=%data% class="fontawesome-linkedin-sign"><a></li>';
+var HTMLetsy = '<li class="contactList"><a href=%data% class="fontawesome-beaker"><a></li>';
+var HTMLlocation = '<li class="contactList fontawesome-pushpin">%data%</li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic flex-item">';
-var HTMLwelcomeMsg = '<span class="welcome-message center-content col-6">%data%</span>';
 
-var HTMLskillsStart = '<h3 class="vertical-pad">Skills at a Glance:</h3><ul id="skills" class="center-content"></ul>';
-var HTMLskills = '<li class="flex-item"><span>%data%</span></li>';
+var HTMLskillsStart = '<h3>Skills:</h3><ul id="skills" class="center-content"></ul>';
+var HTMLskillDevelopment = '<li class="flex-item"><span><strong>Web Development</strong> </span><span>%data%</span></li>';
+var HTMLskillData = '<li class="flex-item"><span><strong> Data </strong></span><span>%data%</span></li>';
+var HTMLskillGraphics = '<li class="flex-item"><span><strong> Graphics </strong></span><span>%data%</span></li>';
+var HTMLskillModeling = '<li class="flex-item"><span><strong> Modeling </strong></span><span>%data%</span></li>';
+var HTMLskillLanguage = '<li class="flex-item"><span><strong> Language </strong></span><span>%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkEmployer = '<a href=%url%><strong>%data%</strong>';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<p>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a href=%url%><strong>%data%</strong></a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
+var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = '<img src="%data%" class="projimg col-5">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a href=%url%><strong>%data%</strong>';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
-var HTMLschoolURL = '<br><a href="#">%data%</a>';
+var HTMLschoolMajor = '<div><em>Major: %data%</em></div>';
 
 var HTMLonlineClasses = '<h3 class="vertical-pad">Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineTitle = '<a href=%url%><strong>%data%</strong>';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
-/*
-The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
-// $(document).ready(function() {
-//   $('button').click(function() {
-//     var $name = $('#name');
-//     var iName = inName($name.text()) || function(){};
-//     $name.html(iName);
-//   });
-// });
-
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
-*/
-var clickLocations = [];
-
-
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x,y);
-});
-
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 var map;    // declares a global map variable
 
-
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
 function initializeMap() {
 
   var locations;
@@ -112,12 +58,7 @@ function initializeMap() {
     disableDefaultUI: true
   };
 
-  /*
-  For the map to be displayed, the googleMap var must be
-  appended to #mapDiv in resumeBuilder.js.
-  */
-  map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
-
+  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -150,11 +91,6 @@ function initializeMap() {
     return locations;
   }
 
-  /*
-  createMapMarker(placeData) reads Google Places search results to create map pins.
-  placeData is the object returned from search results containing information
-  about a single location.
-  */
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -170,16 +106,21 @@ function initializeMap() {
       title: name
     });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
     var infoWindow = new google.maps.InfoWindow({
       content: name
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      if (infoWindow.marker != marker) {
+        infoWindow.marker = marker;
+        infoWindow.setContent('<div>' + infoWindow.content + '</div>');
+        infoWindow.open(map, marker);
+        // Make sure the marker property is cleared if the infowindow is closed.
+        infoWindow.addListener('closeclick',function(){
+          infoWindow.marker = null;
+        });
+      }
     });
 
     // this is where the pin actually gets added to the map.
