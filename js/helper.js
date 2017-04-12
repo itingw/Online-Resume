@@ -3,14 +3,15 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
+var HTMLheaderRole = '<span id="header-role">%data%</span>';
 
-var HTMLcontactGeneric = '<li class="contactList"><span class="green-text">%contact%</span><span>%data%</span></li>';
+
 var HTMLemail = '<li class="contactList"><i class="fa fa-envelope-o" aria-hidden="true"></i><span>%data%</span></li>';
+var HTMLlocation = '<li class="contactList"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span>%data%</span></li>';
+
 var HTMLgithub = '<li class ="contactList"><a href=%data%><i class="fa fa-github" aria-hidden="true"></i><a></li>';
 var HTMLlinkedin = '<li class="contactList"><a href=%data%"><i class="fa fa-linkedin-square" aria-hidden="true"></i><a></li>';
 var HTMLetsy = '<li class="contactList"><a href=%data%><i class="fa fa-etsy" aria-hidden="true"></i><a></li>';
-var HTMLlocation = '<li class="contactList"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span>%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic flex-item">';
 

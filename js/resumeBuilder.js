@@ -108,8 +108,11 @@ bio.display = function() {
     $("#header").prepend(formattedName);
     $("#header").prepend(formattedImg);
 
-    $("#topContacts").append(formattedEmail, formattedLocation, formattedGithub, formattedLinkedin, formattedEtsy);
-    $("#footerContacts").append(formattedEmail,  formattedLocation, formattedGithub, formattedLinkedin, formattedEtsy);
+
+    $("#topContacts").append(formattedEmail, formattedLocation);
+    $("#socialmedia").append(formattedGithub, formattedLinkedin, formattedEtsy);
+
+    $("#footerContacts").append(formattedEmail, formattedGithub, formattedLinkedin, formattedEtsy);
 
     $("#header").append(HTMLskillsStart);
     $("#skills").append(formattedSkillDevelopment, formattedSkillData,formattedSkillGraphics, formattedSkillModeling, formattedSkillLanguage);

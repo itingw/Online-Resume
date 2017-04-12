@@ -28,6 +28,10 @@ a {
 
 }
 
+a:hover {
+    color: #98C93C;
+}
+
 a#inline {
   display: inline;
 }
@@ -38,6 +42,23 @@ a#inline {
   margin-right: auto;
   /*font-family: 'Khand', sans-serif;*/
   /*font-family: 'Poiret One', cursive;*/
+}
+
+#contact {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#topContacts {
+  float:left;
+
+}
+
+#socialmedia {
+  float:right;
 }
 
 /*
@@ -109,11 +130,7 @@ NAVIGATION
   text-decoration: underline;
   color: #0F5D7D;
 }
-a:hover {
-    color: #98C93C;
-    /*font-weight: bold;*/
-    /*text-transform: uppercase;*/
-}
+
 
 /*
 HEADER
@@ -123,6 +140,7 @@ HEADER
   list-style-type: none;
   align-items: center;
   margin: 0;
+  padding-right: 15px;
 }
 
 .welcome-message {
@@ -188,8 +206,7 @@ BORDERS
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
+  justify-content: flex-end;
 }
 
 .flex-column {
