@@ -21,6 +21,18 @@
     font-size: 2em;
     vertical-align: bottom;
   }
+  .nameCard {
+    position: static;
+  }
+
+  .myname {
+    position: static;
+  }
+
+  .mytitle {
+    position: static;
+  }
+
 }
 
 @media screen and (max-width: 450px) {
@@ -54,6 +66,17 @@
   .header__menu svg {
     width: 32px;
     fill:#98C93C;
+  }
+  .nameCard {
+    position: static;
+  }
+
+  .myname {
+    position: static;
+  }
+
+  .mytitle {
+    position: static;
   }
 }
 

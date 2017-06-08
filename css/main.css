@@ -71,23 +71,35 @@ NAVIGATION
   margin: auto;
 }
 
+.nameCard {
+  position: relative;
+  float: right;
+}
+
 .myname {
   text-align: right;
+  right: 0;
   color: #4E5B50;
-  font-size: 50px;
+  font-size: 35px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'Unica One', cursive;
+  bottom: 32px;
+  font-family: 'Lato', sans-serif;
+  position: absolute;
 }
 
 .mytitle {
   text-align: right;
+  right: 0;
+  bottom: 0;
   color: #BABDC6;
-  font-size: 30px;
+  font-size: 23px;
   align-self: baseline;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'Unica One', cursive;
+  bottom: 0px;
+  font-family: 'Lato', sans-serif;
+  position: absolute;
 }
 
 .divider {
