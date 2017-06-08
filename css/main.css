@@ -135,7 +135,8 @@ NAVIGATION
 .nav a {
   text-decoration: none;
   color: #4E5B50;
-  padding: 1.5em;
+  padding: 0px;
+  margin-top: 0px;
 }
 
 .nav a:hover {
