@@ -1,6 +1,6 @@
 var bio = {
     "name": "Ting Wang",
-    "role": "Web Designer",
+    "role": "Graphics & Web Designer",
     "contacts": {
         "email": "itingwang35@gmail.com",
         "github": "https://github.com/itingw",
@@ -10,9 +10,9 @@ var bio = {
     },
     "welcomeMessage": "Welcome",
     "skills": {
-      "development" : "HTML/CSS, Javascript, JQuery, C",
-      "data" : "SQL, ArcGIS, Excel",
       "graphics" : "Adobe Illustrator, InDesign, Photoshop, Hand Rendering",
+      "data" : "Python, SQL, ArcGIS, Excel",
+      "development" : "HTML/CSS, Javascript, JQuery, C",
       "modeling" : "Autodesk AutoCAD, Revit, Rhinoceros, Energy Plus",
       "language" : "English, Mandarin, Spanish"
     },
@@ -62,7 +62,7 @@ var work = {
         "title": "Research Associate II",
         "dates": "January 2014 - Present",
         "location": "Pittsburgh, PA",
-        "description": "- Create marketing deliverables, design user interface and conduct competitive analysis for BuildFIT, a potential business venture that aims to support data-driven investments and operations in buildings for stakeholders. <br> - Design a user interface for a DoD funded project integrating building automation, energy information systems and work orders for facility managers."
+        "description": "- Design and draw data graphics using Illustrator to present utility data and provide recommendations for energy savings for building portfolios, including PNC Bank and the Philadelphia Zoo <br>- Create marketing deliverables for print, PowerPoint and web for BuildFIT, a potential business venture that aims to support data-driven investments and operations in buildings for stakeholders<br> - Design a user interface for a DoD funded project integrating building automation, energy information systems and work orders for facility managers."
     }, {
         "employer": "MacLachlan, Cornelius & Filoni Architects",
         "url": "https://www.mcfarchitects.com",
@@ -98,9 +98,9 @@ bio.display = function() {
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     var formattedEtsy = HTMLetsy.replace("%data%", bio.contacts.etsy);
     var formattedImg = HTMLbioPic.replace("%data%", bio.biopic);
-    var formattedSkillDevelopment= HTMLskillDevelopment.replace("%data%", bio.skills.development);
-    var formattedSkillData= HTMLskillData.replace("%data%", bio.skills.data);
     var formattedSkillGraphics= HTMLskillGraphics.replace("%data%", bio.skills.graphics);
+    var formattedSkillData= HTMLskillData.replace("%data%", bio.skills.data);
+    var formattedSkillDevelopment= HTMLskillDevelopment.replace("%data%", bio.skills.development);
     var formattedSkillModeling= HTMLskillModeling.replace("%data%", bio.skills.modeling);
     var formattedSkillLanguage= HTMLskillLanguage.replace("%data%", bio.skills.language);
 
@@ -115,7 +115,7 @@ bio.display = function() {
     $("#footerContacts").append(formattedEmail, formattedGithub, formattedLinkedin, formattedEtsy);
 
     $("#header").append(HTMLskillsStart);
-    $("#skills").append(formattedSkillDevelopment, formattedSkillData,formattedSkillGraphics, formattedSkillModeling, formattedSkillLanguage);
+    $("#skills").append(formattedSkillGraphics, formattedSkillData, formattedSkillDevelopment, formattedSkillModeling, formattedSkillLanguage);
 
 };
 
